@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="case-seal" content="OCBNYXJjaCAyMDE0">
+<title>Case File: Aviation Disaster | Restricted</title>
+<link rel="stylesheet" href="aviation-disaster.css">
+</head>
+<body>
+<!-- base64:OCBNYXJjaCAyMDE0 -->
+<div class="scan" aria-hidden="true"></div>
+
+<main class="dossier">
+  <header class="topbar">
+    <span>Restricted. Authorized eyes only.</span>
+    <span class="blink" aria-hidden="true">&#9679;</span>
+  </header>
+
+  <section class="title">
+    <p class="stamp" aria-hidden="true">Classified</p>
+    <h1>Case File: Aviation Disaster</h1>
+    <p class="sub">Records Division. Clearance required to open this file.</p>
+  </section>
+
+  <form id="gate" autocomplete="off" novalidate>
+    <label for="code">Access code</label>
+    <input id="code" type="text" spellcheck="false" autocapitalize="off" placeholder="Enter access code" aria-describedby="status">
+    <div class="actions">
+      <button type="submit" class="primary">Unlock file</button>
+      <button type="button" id="hintBtn" class="ghost">Request hint</button>
+    </div>
+    <p id="status" role="status" aria-live="polite"></p>
+  </form>
+
+  <section id="hints" class="hints" aria-live="polite"></section>
+</main>
+
+<script src="aviation-disaster.js"></script>
+</body>
+</html>
