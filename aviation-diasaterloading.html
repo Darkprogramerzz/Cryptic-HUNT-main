@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opening File: Aviation Disaster | Restricted</title>
+<link rel="stylesheet" href="login1.css">
+<link rel="stylesheet" href="aviation-diasaterloading.css">
+</head>
+<body>
+<div class="scan" aria-hidden="true"></div>
+
+<main class="dossier loading" aria-busy="true">
+  <header class="topbar">
+    <span>Restricted. Retrieving file.</span>
+    <span class="blink" aria-hidden="true">&#9679;</span>
+  </header>
+
+  <section class="radar-wrap" aria-hidden="true">
+    <div class="radar">
+      <span class="ring r1"></span><span class="ring r2"></span><span class="ring r3"></span>
+      <span class="cross h"></span><span class="cross v"></span>
+      <span class="sweep"></span>
+      <span class="blip"></span>
+    </div>
+  </section>
+
+  <section class="title">
+    <h1>Opening File</h1>
+    <p class="sub">Case File: Aviation Disaster</p>
+  </section>
+
+  <div class="meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="meter">
+    <div class="meter-fill" id="fill"></div>
+  </div>
+  <p class="pct" id="pct">0%</p>
+
+  <div class="log" id="log" aria-live="polite"></div>
+
+  <div class="actions">
+    <button type="button" id="skip" class="ghost">Skip</button>
+  </div>
+</main>
+
+<script src="aviation-diasaterloading.js"></script>
+</body>
+</html>

@@ -7,7 +7,7 @@
   'use strict';
 
   const CONFIG = {
-    nextPage: '2.html',     // EDIT ME: where a correct slip sends the visitor
+    nextPage: 'Columbia-HCA.html',     // EDIT ME: where a correct slip sends the visitor
     redirectDelay: 2000     // ms the APPROVED stamp stays on screen first
   };
 

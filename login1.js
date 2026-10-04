@@ -1,12 +1,15 @@
 // Where to send the player after a correct code. Change to your next level file.
-const NEXT_PAGE = "4.html";
+const NEXT_PAGE = "aviation-diasaterloading.html";
 
 // Accepted answers are stored as hashes of normalized text,
 // so the answer doesn't sit in the source as plain text.
-const ACCEPTED = [7305969248092013, 2658293724958936, 6535898142664559, 2074010301093715,
-  3016578066791520, 8392835571886434, 2013951929569225, 8438317691193777];
+const ACCEPTED = [8435224073528353];
 
-const HINT = "Every answer begins inside these walls.\nThe face you see is only the front of the house; the truth lives in the bones beneath it.\nRead what the page whispers about itself, in the places visitors never look.";
+const HINTS = [
+  "Every answer begins inside these walls.\nThe face you see is only the front of the house; the truth lives in the bones beneath it.\nRead what the page whispers about itself, in the places visitors never look.",
+  "The code is two letters followed by three digits."
+];
+let hintIndex = 0;
 
 // Hidden line placed inside the riddle text. It is invisible on screen but gets copied
 // with the riddle. Stored as base64 so it is not readable at a glance in the source.
@@ -68,8 +71,13 @@ hintBtn.addEventListener("click", () => {
   const div = document.createElement("div");
   div.className = "hint";
   div.appendChild(ghost());
-  div.appendChild(document.createTextNode(HINT));
+  div.appendChild(document.createTextNode(HINTS[hintIndex]));
   div.appendChild(ghost());
   hintBox.appendChild(div);
-  hintBtn.disabled = true;
+  hintIndex++;
+  if (hintIndex >= HINTS.length) {
+    hintBtn.disabled = true;
+  } else {
+    hintBtn.textContent = "Request another hint";
+  }
 });

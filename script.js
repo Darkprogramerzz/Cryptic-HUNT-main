@@ -12,7 +12,7 @@ const CONFIG = {
   secretCode: '4471',
 
   // EDIT ME: file name of the login page. Solving Fragment 0 sends visitors here.
-  loginPage: 'aviation-disaster.html',
+  loginPage: 'login1.html',
 
   // How long (ms) the "VERIFIED" message stays on screen before redirecting.
   redirectDelay: 2200,
