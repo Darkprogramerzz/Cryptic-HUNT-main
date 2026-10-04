@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RESTRICTED // Aviation Disaster — Satellite Log</title>
+    <link rel="stylesheet" href="4.css">
+</head>
+
+<body>
+    <main class="rig">
+
+        <div class="banner">RESTRICTED // EYES ONLY</div>
+
+        <header class="bar">
+            <h1>Aviation Disaster <small>Satellite log · Indian Ocean Region</small></h1>
+            <p class="dep">FILE DATE <span class="redact">██ ███ ████</span> · satellite clock = UTC</p>
+        </header>
+
+        <section class="scope" aria-label="Handshake scope">
+            <svg id="scope" viewBox="0 0 400 300" role="img" aria-label="Seven ping arcs around a satellite">
+                <g id="rings"></g>
+                <circle cx="24" cy="150" r="5" class="sat" />
+                <text x="12" y="176" class="lbl">SAT</text>
+            </svg>
+            <button id="recv" type="button" class="btn primary">Receive handshake 1 of 7</button>
+        </section>
+
+        <section class="logbox" aria-label="Handshake log">
+            <div class="logtop">
+                <h2>Handshake log</h2>
+                <button id="clock" type="button" class="btn small">Show Malaysia time column</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>UTC</th>
+                        <th class="myt" hidden>MYT</th>
+                        <th>Source</th>
+                    </tr>
+                </thead>
+                <tbody id="rows"></tbody>
+            </table>
+            <p id="armed" class="note">Receive all seven handshakes to arm the lock.</p>
+        </section>
+
+        <section class="lock" aria-label="Seven-dial lock">
+            <h2>Lock</h2>
+            <div id="dials" class="dials"></div>
+            <div class="lockrow">
+                <button id="send" type="button" class="btn primary" disabled>Transmit</button>
+                <button id="brief" type="button" class="btn">Analyst brief</button>
+                <button id="reset" type="button" class="btn small">Reset</button>
+            </div>
+            <p id="brief-text" aria-live="polite"></p>
+            <p id="result" role="alert"></p>
+        </section>
+
+    </main>
+    <script src="4.js"></script>
+</body>
+
+</html>

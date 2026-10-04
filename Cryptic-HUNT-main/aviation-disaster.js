@@ -1,5 +1,5 @@
 // Where to send the player after a correct code. Change to your next level file.
-const NEXT_PAGE = "3.html";
+const NEXT_PAGE = "4.html";
 
 // Accepted answers are stored as hashes of normalized text,
 // so the answer doesn't sit in the source as plain text.

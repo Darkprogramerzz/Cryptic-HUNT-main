@@ -1,0 +1,107 @@
+/* LEVEL 4 — standalone. Dark monochrome case-file look, matching the login page. */
+@font-face { font-family: "JetBrains Mono"; src: url("fonts/jetbrains-mono-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("fonts/jetbrains-mono-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+
+:root {
+    --bg: #070707;
+    --bg2: #0d0d0d;
+    --line: #3a3a3a;
+    --ink: #d6d6d6;
+    --dim: #828282;
+    --signal: #f2f2f2;
+    --bad: #bdbdbd;
+    --mono: "JetBrains Mono", "Courier New", ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--bg);
+    background-image: repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 0, rgba(255, 255, 255, 0.025) 1px, transparent 1px, transparent 3px);
+    color: var(--ink);
+    font-family: var(--mono);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+:focus-visible { outline: 2px solid var(--signal); outline-offset: 2px; }
+
+.rig {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 24px 20px 48px;
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 20px;
+    grid-template-areas: "banner banner" "bar bar" "scope log" "lock lock";
+}
+
+.bar { grid-area: bar; display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; border-bottom: 2px solid var(--line); padding-bottom: 10px; }
+.bar h1 { margin: 0; font-size: 20px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+.bar small { display: block; font-size: 12px; font-weight: 400; color: var(--dim); }
+.dep { margin: 0; color: var(--dim); font-size: 12px; }
+.dep b { color: var(--signal); }
+.banner { grid-area: banner; text-align: center; border: 1px solid var(--line); padding: 4px; font-size: 11px; letter-spacing: 0.3em; color: var(--dim); }
+.redact { background: #000; color: #000; border: 1px solid #1c1c1c; user-select: none; padding: 0 6px; }
+
+.scope, .logbox, .lock { border: 1px solid var(--line); background: rgba(14, 14, 14, 0.92); padding: 16px; }
+.scope { grid-area: scope; }
+.logbox { grid-area: log; }
+.lock { grid-area: lock; }
+
+h2 { margin: 0 0 10px; font-size: 13px; font-weight: 700; color: var(--dim); }
+
+/* ---- scope ---- */
+#scope { width: 100%; height: auto; display: block; background: var(--bg2); border: 1px solid var(--line); }
+.ring { fill: none; stroke: var(--line); stroke-width: 1; stroke-dasharray: 3 5; opacity: 0.35; }
+.ring.on { stroke: var(--signal); stroke-width: 2; stroke-dasharray: none; opacity: 1; animation: ping 0.9s ease-out; }
+.ring.win { filter: drop-shadow(0 0 4px var(--signal)); }
+.sat { fill: var(--signal); }
+.lbl { fill: var(--dim); font-size: 10px; font-family: var(--mono); }
+.lbl.on { fill: var(--signal); }
+@keyframes ping { from { stroke-width: 9; opacity: 0.2; } to { stroke-width: 2; opacity: 1; } }
+
+/* ---- buttons ---- */
+.btn { background: transparent; color: var(--ink); border: 1px solid var(--line); font-family: var(--mono); font-size: 13px; padding: 9px 14px; cursor: pointer; }
+.btn:hover:not(:disabled) { border-color: var(--signal); color: var(--signal); }
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.btn.primary { background: var(--signal); color: #000; border-color: var(--signal); font-weight: 700; }
+.btn.primary:hover:not(:disabled) { color: #000; filter: brightness(1.08); }
+.btn.small { font-size: 11px; padding: 5px 9px; }
+.scope .btn { margin-top: 12px; width: 100%; }
+
+/* ---- log ---- */
+.logtop { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 8px; }
+.logtop h2 { margin: 0; }
+table { width: 100%; border-collapse: collapse; }
+th { text-align: left; font-size: 11px; color: var(--dim); font-weight: 400; border-bottom: 1px solid var(--line); padding: 4px 6px; }
+td { padding: 7px 6px; border-bottom: 1px dashed rgba(255, 255, 255, 0.12); }
+tbody tr { animation: row-in 0.35s ease-out; }
+@keyframes row-in { from { opacity: 0; transform: translateX(-8px); } }
+td:first-child { color: var(--signal); }
+.note { color: var(--dim); font-size: 12px; margin: 12px 0 0; }
+.note.ready { color: var(--signal); }
+
+/* ---- lock ---- */
+.dials { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
+.dial { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.dial button { width: 44px; height: 24px; background: transparent; border: 1px solid var(--line); color: var(--dim); font-family: var(--mono); cursor: pointer; }
+.dial button:hover { color: var(--signal); border-color: var(--signal); }
+.dial output { width: 44px; height: 52px; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 700; color: var(--signal); background: #000; border: 1px solid var(--line); }
+.dial small { color: var(--dim); font-size: 10px; margin-top: 2px; }
+.dials.locked { opacity: 0.45; pointer-events: none; }
+.lockrow { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+#brief-text { color: var(--signal); font-size: 13px; margin: 12px 0 0; min-height: 1.4em; }
+#result { margin: 8px 0 0; min-height: 1.4em; }
+#result.fail { color: var(--bad); }
+#result.ok { color: var(--signal); font-weight: 700; }
+
+@media (max-width: 760px) {
+    .rig { grid-template-columns: 1fr; grid-template-areas: "banner" "bar" "scope" "log" "lock"; }
+}
+@media (prefers-reduced-motion: reduce) {
+    * { animation-duration: 0.001ms !important; }
+}

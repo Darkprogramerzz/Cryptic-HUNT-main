@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REQUEST DESK // Records Division — Call Slip</title>
+
+    <!--
+  Good instinct, checking the source. The answer isn't in this file.
+  It's in the clippings, and it's the one name every clipping has in common.
+-->
+
+    <link rel="stylesheet" href="2.css">
+    <link rel="stylesheet" href="login2.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+        <div class="seal" aria-hidden="true">
+            <svg viewBox="0 0 100 100" width="42" height="42">
+                <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="2" />
+                <circle cx="50" cy="50" r="38" fill="none" stroke="currentColor" stroke-width="1" />
+                <path d="M50 20 L58 45 L50 40 L42 45 Z" fill="currentColor" />
+                <path d="M30 60 Q50 78 70 60" fill="none" stroke="currentColor" stroke-width="3" />
+            </svg>
+        </div>
+        <div class="case-id">
+            <span class="case-id-label">RECORDS DIVISION</span>
+            <span class="case-id-num">REQUEST DESK &nbsp;/&nbsp; WINDOW 2</span>
+        </div>
+        <div class="clearance-stamp">AUTHORIZATION&nbsp;REQUIRED</div>
+    </header>
+
+    <main>
+
+        <section class="panel">
+            <h2><span class="tag">A</span> The Clippings</h2>
+            <p>A sealed file was checked out of this room years ago. The clerk who logged it left no
+                title, only these three clippings pinned to the board. One organization appears in all
+                three. Its name has been blacked out each time.</p>
+
+            <div class="board">
+
+                <article class="clip c1">
+                    <span class="pin" aria-hidden="true"></span>
+                    <p class="clip-date">MARCH 1997</p>
+                    <p>More than 100 federal agents carried truckloads of billing and medical records out of
+                        hospitals and doctors' offices in El Paso, Texas. Shares in
+                        <span class="blk">██████████</span> fell sharply in the weeks that followed.</p>
+                </article>
+
+                <article class="clip c2">
+                    <span class="pin" aria-hidden="true"></span>
+                    <p class="clip-date">LATER THAT YEAR</p>
+                    <p>The chief executive of <span class="blk">██████████</span> resigned. He went on to
+                        become the governor of a state, and later a United States senator.</p>
+                </article>
+
+                <article class="clip c3">
+                    <span class="pin" aria-hidden="true"></span>
+                    <p class="clip-date">2000 &ndash; 2003</p>
+                    <p>Subsidiaries of <span class="blk">██████████</span> pleaded guilty to felonies, and
+                        its settlements with the government totaled roughly $1.7 billion, at the time the
+                        largest healthcare fraud recovery in American history.</p>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="panel slip">
+            <h2><span class="tag">B</span> Call Slip</h2>
+            <p>To request the file, write the name from the clippings on the slip. No other title will be
+                accepted at this window.</p>
+
+            <form id="slip-form" autocomplete="off">
+                <label for="slip-input">NAME ON THE CLIPPINGS</label>
+                <div class="slip-row">
+                    <input id="slip-input" type="text" placeholder="NAME / NAME" spellcheck="false"
+                        autocapitalize="characters">
+                    <button type="submit" id="slip-btn">SUBMIT SLIP</button>
+                </div>
+            </form>
+            <p id="slip-result" role="alert"></p>
+
+            <div class="hint-row">
+                <button id="hint-btn" type="button" class="ghost-btn">Ask the clerk</button>
+                <span id="hint-text" aria-live="polite"></span>
+            </div>
+
+            <div id="approved" class="approved" hidden aria-hidden="true">APPROVED</div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Public-record research summary. Not legal advice.</p>
+    </footer>
+
+    <script src="login2.js"></script>
+</body>
+
+</html>

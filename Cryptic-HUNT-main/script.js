@@ -11,6 +11,12 @@ const CONFIG = {
   // Must match the code a visitor gets when they highlight that line.
   secretCode: '4471',
 
+  // EDIT ME: file name of the login page. Solving Fragment 0 sends visitors here.
+  loginPage: 'aviation-disaster.html',
+
+  // How long (ms) the "VERIFIED" message stays on screen before redirecting.
+  redirectDelay: 2200,
+
   // EDIT ME: where "Register Your Team" should go.
   registerEmail: 'casezero@yourschool.edu',
 
@@ -204,11 +210,12 @@ function initLock() {
     feedback.classList.remove('is-success', 'is-error');
 
     if (code === CONFIG.secretCode) {
-      feedback.textContent = 'FRAGMENT 0 — VERIFIED. Case Zero already has its eye on you.';
+      feedback.textContent = 'FRAGMENT 0 — VERIFIED. Opening the next file\u2026';
       feedback.classList.add('is-success');
       submitBtn.disabled = true;
       dialsContainer.querySelectorAll('.dial__btn').forEach((b) => { b.disabled = true; });
       if (lock) lock.classList.add('is-open');
+      setTimeout(() => { window.location.href = CONFIG.loginPage; }, CONFIG.redirectDelay);
     } else {
       feedback.textContent = 'No match. The number is hiding, not gone.';
       feedback.classList.add('is-error');
